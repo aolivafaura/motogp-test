@@ -1,5 +1,7 @@
 package com.oliva.antonio.dornatest.di
 
+import com.oliva.antonio.dornatest.ui.main.detail.EventDetailFragment
+import com.oliva.antonio.dornatest.ui.main.list.EventListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,14 +11,14 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class MainActivityFragmentsBuilder {
-/*
-    @ContributesAndroidInjector(modules = [
-        (GnomesListFragment.GnomesListFragmentModule::class),
-        (GnomesListFragment.ListFragmentProvider::class)])
-    abstract fun contributeListFragment(): GnomesListFragment
 
     @ContributesAndroidInjector(modules = [
-        (DetailFragment.DetailFragmentModule::class),
-        (DetailFragment.DetailFragmentProvider::class)])
-    abstract fun contributeDetailFragment(): DetailFragment*/
+        (EventListFragment.EventListFragmentModule::class),
+        (EventListFragment.ListFragmentProvider::class)])
+    abstract fun contributeListFragment(): EventListFragment
+
+    @ContributesAndroidInjector(modules = [
+        (EventDetailFragment.EventDetailFragmentModule::class),
+        (EventDetailFragment.DetailFragmentProvider::class)])
+    abstract fun contributeDetailFragment(): EventDetailFragment
 }

@@ -48,20 +48,4 @@ class AppModule {
     @Provides
     @Singleton
     fun provideConnectivityManager(context: Context): Connectivity = Connectivity(context)
-
-    /**
-     * Provides cache directory for network responses
-     * @param context
-     */
-    @Provides
-    @Singleton
-    fun provideCacheDirectory(context: Context): File = File(context.cacheDir, "responses")
-
-    /**
-     * Provides network interceptor to cache responses in memory
-     * @param connectivity Connectivity manager
-     */
-    @Provides
-    @Singleton
-    fun provideCacheInterceptor(connectivity: Connectivity): LocalCacheInterceptor = LocalCacheInterceptor(connectivity)
 }

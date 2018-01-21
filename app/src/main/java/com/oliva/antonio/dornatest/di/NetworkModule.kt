@@ -21,34 +21,29 @@ import javax.inject.Singleton
 class NetworkModule {
 
     /**
-     * Provides network interceptors for okhttp client. In this case, just one interceptor is provided,
+     * Provides network interceptors for okhttp client. In this case, no interceptor is provided,
      * but is useful to do it that way for debug configurations (i.e.: loggin interceptor, stetho interceptor, etc)
      *
      * @param interceptor
      */
     @Provides
     @Singleton
-    fun provideNetworkInterceptors(interceptor: LocalCacheInterceptor): ArrayList<Interceptor> {
-        return arrayListOf(interceptor)
+    fun provideNetworkInterceptors(): ArrayList<Interceptor> {
+        return ArrayList()
     }
 
     /**
      * Provides http client
      *
-     * @param httpCacheDirectory Directory for cache responses
      * @param interceptors
      */
     @Provides
     @Singleton
-    fun providesHttpClient(httpCacheDirectory: File, interceptors: ArrayList<Interceptor>): OkHttpClient {
-        val cacheSize = 10L * 1024 * 1024 // 10 MiB
-        val cache = Cache(httpCacheDirectory, cacheSize)
-
+    fun providesHttpClient(interceptors: ArrayList<Interceptor>): OkHttpClient {
         val builder = OkHttpClient.Builder()
                 .readTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(20, TimeUnit.SECONDS)
                 .connectTimeout(10, TimeUnit.SECONDS)
-                .cache(cache)
 
         for (interceptor in interceptors) {
             builder.addNetworkInterceptor(interceptor)
