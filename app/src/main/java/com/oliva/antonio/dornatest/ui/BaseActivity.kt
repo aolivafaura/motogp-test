@@ -30,9 +30,9 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector, F
 
     protected fun replaceFragment(newFragment: BaseFragment, fragmentTag: String, backStack: Boolean) {
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        /*
+
         transaction.setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left,
-                R.anim.slide_in_from_left, R.anim.slide_out_to_right)*/
+                R.anim.slide_in_from_left, R.anim.slide_out_to_right)
         transaction.replace(R.id.container, newFragment, fragmentTag)
         if (backStack) {
             transaction.addToBackStack(fragmentTag)
