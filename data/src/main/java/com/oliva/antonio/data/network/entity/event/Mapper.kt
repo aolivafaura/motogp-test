@@ -1,6 +1,7 @@
 package com.oliva.antonio.data.network.entity.event
 
 import com.oliva.antonio.data.entity.event.EventEntity
+import com.oliva.antonio.data.network.entity.event.session.DetailApiResult
 
 /**
  * Created by antonio on 12/3/17.

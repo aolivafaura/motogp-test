@@ -8,4 +8,5 @@ data class Event(val id: Int,
                  val imageUrl: String,
                  val dateBegin: String,
                  val dateFinish: String,
-                 val circuitFlag: String)
+                 val circuitFlag: String,
+                 val sessions: List<Session>)

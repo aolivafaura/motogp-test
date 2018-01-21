@@ -1,13 +1,14 @@
-package com.oliva.antonio.brastlewarkguide.di
+package com.oliva.antonio.dornatest.di
 
 import android.arch.persistence.room.Room
 import android.content.Context
+import com.oliva.antonio.common.network.Connectivity
 import com.oliva.antonio.data.cache.CacheDao
-import com.oliva.antonio.data.cache.gnome.room.CacheGnomeDaoWrapper
-import com.oliva.antonio.data.entity.GnomeEntity
+import com.oliva.antonio.data.cache.room.AppDatabase
+import com.oliva.antonio.data.cache.room.EventCacheDaoWrapper
+import com.oliva.antonio.data.entity.event.EventEntity
 import com.oliva.antonio.data.network.DornaService
-import com.oliva.antonio.data.repository.gnome.AppDatabase
-import com.oliva.antonio.data.repository.gnome.EventDataRepository
+import com.oliva.antonio.data.repository.EventDataRepository
 import com.oliva.antonio.domain.repository.EventRepository
 import dagger.Module
 import dagger.Provides
@@ -27,18 +28,11 @@ class RepositoryModule {
      */
     @Provides
     @Singleton
-    fun provideCacheGnomeDao(context: Context): CacheDao<GnomeEntity> {
+    fun provideCacheGnomeDao(context: Context): CacheDao<EventEntity> {
         val appDatabase = Room.databaseBuilder(context, AppDatabase::class.java, "dorna.db")
                 .fallbackToDestructiveMigration().build()
-        return CacheGnomeDaoWrapper(appDatabase.gnomeDao())
+        return EventCacheDaoWrapper(appDatabase.eventCacheDao())
     }
-
-    /**
-     * Pagination
-     */
-    @Provides
-    @Singleton
-    fun providePaginationLimit(): Int = 50
 
     /**
      * Provides gnomes repository
@@ -47,6 +41,8 @@ class RepositoryModule {
      */
     @Provides
     @Singleton
-    fun provideGnomeRepository(cacheDao: CacheDao<GnomeEntity>, dornaService: DornaService, paginationLimit: Int): EventRepository =
-            EventDataRepository(cacheDao, dornaService, paginationLimit)
+    fun provideGnomeRepository(cacheDao: CacheDao<EventEntity>,
+                               dornaService: DornaService,
+                               connectivity: Connectivity): EventRepository =
+            EventDataRepository(cacheDao, dornaService, connectivity)
 }

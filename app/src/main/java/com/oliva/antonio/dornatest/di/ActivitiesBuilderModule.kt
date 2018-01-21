@@ -1,6 +1,6 @@
-package com.oliva.antonio.brastlewarkguide.di
+package com.oliva.antonio.dornatest.di
 
-import com.oliva.antonio.brastlewarkguide.ui.main.MainActivity
+import com.oliva.antonio.dornatest.ui.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,6 +9,10 @@ import dagger.android.ContributesAndroidInjector
  */
 @Module
 abstract class ActivitiesBuilderModule {
+
+    /*@ContributesAndroidInjector(modules = [(MainActivity.MainActivityModule::class),
+        (MainActivityFragmentsBuilder::class)])
+    abstract fun contributesMainActivity(): MainActivity*/
 
     @ContributesAndroidInjector(modules = [(MainActivity.MainActivityModule::class),
         (MainActivityFragmentsBuilder::class)])

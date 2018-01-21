@@ -1,8 +1,5 @@
 package com.oliva.antonio.dornatest.di
 
-import com.oliva.antonio.brastlewarkguide.di.ActivitiesBuilderModule
-import com.oliva.antonio.brastlewarkguide.di.NetworkModule
-import com.oliva.antonio.brastlewarkguide.di.RepositoryModule
 import com.oliva.antonio.dornatest.DornaApp
 import dagger.BindsInstance
 import dagger.Component

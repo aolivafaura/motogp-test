@@ -1,4 +1,4 @@
-package com.oliva.antonio.data.entity.session
+package com.oliva.antonio.data.entity.event.session
 
 import com.oliva.antonio.domain.entity.Session
 

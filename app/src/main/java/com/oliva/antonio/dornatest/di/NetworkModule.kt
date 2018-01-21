@@ -1,7 +1,7 @@
-package com.oliva.antonio.brastlewarkguide.di
+package com.oliva.antonio.dornatest.di
 
-import com.oliva.antonio.dornatest.network.LocalCacheInterceptor
 import com.oliva.antonio.data.network.DornaService
+import com.oliva.antonio.dornatest.network.LocalCacheInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache

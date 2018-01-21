@@ -1,6 +1,6 @@
 package com.oliva.antonio.data.network
 
-import com.oliva.antonio.data.network.entity.detail.DetailApiResult
+import com.oliva.antonio.data.network.entity.event.session.DetailApiResult
 import com.oliva.antonio.data.network.entity.event.EventsApiResult
 import io.reactivex.Flowable
 import retrofit2.http.GET

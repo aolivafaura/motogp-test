@@ -1,7 +1,5 @@
-package com.oliva.antonio.brastlewarkguide.di
+package com.oliva.antonio.dornatest.di
 
-import com.oliva.antonio.brastlewarkguide.ui.main.detail.DetailFragment
-import com.oliva.antonio.brastlewarkguide.ui.main.list.GnomesListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -11,7 +9,7 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class MainActivityFragmentsBuilder {
-
+/*
     @ContributesAndroidInjector(modules = [
         (GnomesListFragment.GnomesListFragmentModule::class),
         (GnomesListFragment.ListFragmentProvider::class)])
@@ -20,5 +18,5 @@ abstract class MainActivityFragmentsBuilder {
     @ContributesAndroidInjector(modules = [
         (DetailFragment.DetailFragmentModule::class),
         (DetailFragment.DetailFragmentProvider::class)])
-    abstract fun contributeDetailFragment(): DetailFragment
+    abstract fun contributeDetailFragment(): DetailFragment*/
 }

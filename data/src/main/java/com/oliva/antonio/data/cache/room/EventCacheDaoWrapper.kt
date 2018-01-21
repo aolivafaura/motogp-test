@@ -1,0 +1,42 @@
+package com.oliva.antonio.data.cache.room
+
+import com.oliva.antonio.data.cache.CacheDao
+import com.oliva.antonio.data.cache.room.event.EventCacheDao
+import com.oliva.antonio.data.cache.room.event.mapEventCacheEntityToEventEntity
+import com.oliva.antonio.data.cache.room.event.mapEventCacheWithSessionsToEventEntity
+import com.oliva.antonio.data.cache.room.event.mapEventEntityToEventCacheEntity
+import com.oliva.antonio.data.cache.room.event.session.SessionCacheEntity
+import com.oliva.antonio.data.cache.room.event.session.mapSessionEntityToSessionCacheEntity
+import com.oliva.antonio.data.entity.event.EventEntity
+import io.reactivex.Flowable
+
+/**
+ * Created by antonio on 12/3/17.
+ */
+
+class EventCacheDaoWrapper(val eventCacheDao: EventCacheDao) : CacheDao<EventEntity> {
+
+    override fun insert(entities: List<EventEntity>): List<Long> {
+        val sessionsToInsert: List<SessionCacheEntity> =
+                entities.filter { it.sessions.isNotEmpty() }
+                        .flatMap { event -> event.sessions.map { mapSessionEntityToSessionCacheEntity(it, event.id) } }
+
+        if (sessionsToInsert.isNotEmpty()) {
+            eventCacheDao.insertSessions(sessionsToInsert)
+        }
+
+        return eventCacheDao.insertEvents(entities.map { mapEventEntityToEventCacheEntity(it) })
+    }
+
+    override fun get(id: Int): Flowable<EventEntity> = eventCacheDao.get(id).map { mapEventCacheWithSessionsToEventEntity(it) }
+
+    override fun getAll(): Flowable<List<EventEntity>> = eventCacheDao.getAll().map { it.map { mapEventCacheEntityToEventEntity(it) } }
+
+    override fun update(entity: EventEntity): EventEntity {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun updateAll(entities: List<EventEntity>): List<EventEntity> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+}

@@ -17,5 +17,5 @@ interface EventRepository {
     /**
      *
      */
-    fun getEvent(id: Int): Flowable<List<Event>>
+    fun getEvent(id: Int): Flowable<Event>
 }

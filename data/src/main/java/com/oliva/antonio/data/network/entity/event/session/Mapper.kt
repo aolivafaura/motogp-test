@@ -1,7 +1,7 @@
-package com.oliva.antonio.data.network.entity.detail
+package com.oliva.antonio.data.network.entity.event.session
 
 import com.oliva.antonio.data.entity.event.EventEntity
-import com.oliva.antonio.data.entity.session.SessionEntity
+import com.oliva.antonio.data.entity.event.session.SessionEntity
 
 /**
  * Created by antonio on 1/20/18.
