@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    retrofitVersion = '2.3.0'
+    okhttpVersion = '3.9.1'
+    roomVersion = "1.0.0"
+    junitVersion = "4.12"
+}
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':common')
+
+    // Network dependencies
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion") {
+        exclude module: 'okhttp'
+    }
+    compileOnly "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compileOnly "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    compileOnly "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // Local cache
+    compileOnly "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$roomVersion"
+
+    // Kotlin
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+
+    // Test dependencies
+    testImplementation "junit:junit:$junitVersion"
+}

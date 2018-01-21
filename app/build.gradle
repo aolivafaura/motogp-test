@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+ext {
+    compatVersion = "27.0.2"
+    constraintVersion = "1.0.2"
+    rxKotlinVersion = "2.2.0"
+    rxAndroidVersion = "2.0.1"
+    junitVersion = "4.12"
+    daggerVersion = "2.11"
+    jsrVersion = "1.0"
+    lifecycleRuntimeVersion = "1.0.3"
+    lifecycleVersion = "1.0.0"
+    glideVersion = "4.4.0"
+    testRunnerVersion = "1.0.1"
+    espressoVersion = "3.0.1"
+    okhttpVersion = '3.9.1'
+    retrofitVersion = '2.3.0'
+    roomVersion = "1.0.0"
+    mockitoVersion = '2.8.9'
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation project(path: ":data")
+    implementation project(path: ":domain")
+    implementation project(path: ":common")
+
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    implementation "com.android.support:recyclerview-v7:$compatVersion"
+    implementation "com.android.support:support-vector-drawable:$compatVersion"
+    implementation "com.android.support:design:$compatVersion"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$compatVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintVersion"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    implementation("com.google.dagger:dagger-android-support:$daggerVersion", {
+        exclude group: 'com.android.support'
+    })
+    implementation "com.google.dagger:dagger:$daggerVersion"
+
+    compileOnly "javax.annotation:jsr250-api:$jsrVersion"
+
+    implementation "android.arch.lifecycle:runtime:$lifecycleRuntimeVersion"
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+    kapt "android.arch.lifecycle:compiler:$lifecycleVersion"
+
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
+    testImplementation "android.arch.core:core-testing:$lifecycleVersion"
+    androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile project(path: ':common')
+}
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.oliva.antonio.dornatest"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
