@@ -13,8 +13,4 @@ interface CacheDao<T> {
     fun get(id: Int): Flowable<T>
 
     fun getAll(): Flowable<List<T>>
-
-    fun update(entity: T): T
-
-    fun updateAll(entities: List<T>): List<T>
 }

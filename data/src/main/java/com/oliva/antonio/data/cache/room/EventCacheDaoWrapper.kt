@@ -31,12 +31,4 @@ class EventCacheDaoWrapper(val eventCacheDao: EventCacheDao) : CacheDao<EventEnt
     override fun get(id: Int): Flowable<EventEntity> = eventCacheDao.get(id).map { mapEventCacheWithSessionsToEventEntity(it) }
 
     override fun getAll(): Flowable<List<EventEntity>> = eventCacheDao.getAll().map { it.map { mapEventCacheEntityToEventEntity(it) } }
-
-    override fun update(entity: EventEntity): EventEntity {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun updateAll(entities: List<EventEntity>): List<EventEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 }
