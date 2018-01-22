@@ -21,7 +21,6 @@ interface AppComponent {
 
     @Component.Builder
     interface Builder {
-
         @BindsInstance
         fun application(app: DornaApp): Builder
 

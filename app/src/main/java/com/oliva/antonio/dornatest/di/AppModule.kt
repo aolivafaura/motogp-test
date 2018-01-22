@@ -3,13 +3,11 @@ package com.oliva.antonio.dornatest.di
 import android.content.Context
 import com.oliva.antonio.common.network.Connectivity
 import com.oliva.antonio.dornatest.DornaApp
-import com.oliva.antonio.dornatest.network.LocalCacheInterceptor
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import java.io.File
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -24,7 +22,6 @@ class AppModule {
      * @param app
      */
     @Provides
-    @Singleton
     fun provideContext(app: DornaApp): Context = app.applicationContext!!
 
     /**

@@ -24,7 +24,6 @@ class RepositoryModule {
     /**
      * Provides local cache data access object
      *
-     * @param appDatabase
      */
     @Provides
     @Singleton

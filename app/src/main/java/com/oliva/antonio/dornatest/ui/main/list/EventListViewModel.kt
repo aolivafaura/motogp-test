@@ -6,6 +6,9 @@ import android.arch.lifecycle.ViewModelProvider
 import com.oliva.antonio.brastlewarkguide.ui.common.ViewState
 import com.oliva.antonio.domain.entity.Event
 import com.oliva.antonio.domain.usecase.event.GetAllEvents
+import com.oliva.antonio.dornatest.entity.EventUI
+import com.oliva.antonio.dornatest.entity.mapEventToEventUI
+import io.reactivex.subscribers.ResourceSubscriber
 
 /**
  * Created by antonio on 1/21/18.
@@ -14,8 +17,32 @@ import com.oliva.antonio.domain.usecase.event.GetAllEvents
 class EventListViewModel(val getAllEvents: GetAllEvents) : ViewModel() {
 
     // DATA ----------------------------------------------------------------------------------------
-    val eventsData = MutableLiveData<MutableList<Event>>()
+    val eventsData = MutableLiveData<List<EventUI>>()
     val state = MutableLiveData<ViewState>()
+
+    fun setViewState(state: ViewState) {
+        this.state.value = state
+
+        if (state == ViewState.Refreshing) {
+            loadEvents()
+        }
+    }
+
+    private fun loadEvents() {
+        getAllEvents.execute(object : ResourceSubscriber<List<Event>>() {
+            override fun onComplete() {}
+
+            override fun onNext(events: List<Event>) {
+                eventsData.value = events.map { mapEventToEventUI(it) }
+                dispose()
+                state.value = ViewState.Idle
+            }
+
+            override fun onError(t: Throwable?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        }, null)
+    }
 
     // VIEW MODEL OVERRIDES ------------------------------------------------------------------------
     override fun onCleared() {

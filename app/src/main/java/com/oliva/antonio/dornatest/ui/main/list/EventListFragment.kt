@@ -2,6 +2,7 @@ package com.oliva.antonio.dornatest.ui.main.list
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import com.oliva.antonio.brastlewarkguide.ui.common.ViewState
 import com.oliva.antonio.domain.usecase.event.GetAllEvents
 import com.oliva.antonio.dornatest.R
 import com.oliva.antonio.dornatest.ui.BaseFragment
@@ -16,9 +17,6 @@ import javax.inject.Inject
  */
 
 class EventListFragment : BaseFragment() {
-
-    // Variable to check fragment recreations through back stack pops
-    private var beingRecreated = false
 
     @Inject
     lateinit var viewModelFactory: EventListViewModel.ListViewModelFactory
@@ -35,6 +33,8 @@ class EventListFragment : BaseFragment() {
 
         mainViewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
         listViewModel = ViewModelProviders.of(this, viewModelFactory).get(EventListViewModel::class.java)
+
+        listViewModel.setViewState(ViewState.Refreshing)
     }
 
     // PRIVATE METHODS -----------------------------------------------------------------------------

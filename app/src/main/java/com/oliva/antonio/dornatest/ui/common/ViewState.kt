@@ -12,12 +12,5 @@ enum class ViewState {
     /**
      * Indicates that view is being updated with new elements
      */
-    Refreshing,
-    /**
-     * Indicates taht view is loading more elements from its current data set
-     */
-    LoadingMore,
-    /**
-     * Indicates that there is no more elements to load from data set
-     */
-    AllLoaded }
+    Refreshing
+}

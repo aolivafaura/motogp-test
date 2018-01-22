@@ -27,14 +27,11 @@ class EventDataRepository(val eventCacheDao: CacheDao<EventEntity>,
 
     override fun getEvents(): Flowable<List<Event>> {
         return if (connectivity.isConnected()) {
-            Flowable.fromPublisher(eventCacheDao.getAll())
+            eventCacheDao.getAll()
                     .flatMap {
-                        Log.d("CACHE", "EEEEEH")
                         if (it.isNotEmpty() && it.none { isOutdated(it) }) {
-                            Log.d("CACHE", "from cache")
                             Flowable.just<List<EventEntity>>(it)
                         } else {
-                            Log.d("CACHE", "from network")
                             dornaService.getEvents().map { mapApiResultToEventEntityList(it) }
                                     .doOnNext { eventCacheDao.insert(it) }
                         }
@@ -47,7 +44,7 @@ class EventDataRepository(val eventCacheDao: CacheDao<EventEntity>,
 
     override fun getEvent(id: Int): Flowable<Event> {
         return if (connectivity.isConnected()) {
-            Flowable.fromPublisher(eventCacheDao.get(id))
+            eventCacheDao.get(id)
                     .flatMap {
                         if (!isOutdated(it)) {
                             Flowable.just<EventEntity>(it)
