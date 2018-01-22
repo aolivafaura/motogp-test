@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,17 +13,16 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/ctdetailgnome"
+            android:id="@+id/ct_detail_event"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:collapsedTitleTextAppearance="@style/CollapsingText"
-            app:contentScrim="@color/colorCollapsedToolbar"
             app:expandedTitleTextAppearance="@style/ExpandedText"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/ivgnomeprofile"
+                android:id="@+id/iv_event_image_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -46,192 +44,43 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/clgnomeinfo"
+            android:id="@+id/cl_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp">
 
-            <!-- Age -->
-            <TextView
-                android:id="@+id/tvagelabel"
-                style="@style/DetailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
+            <ImageView
+                android:id="@+id/iv_flag_detail"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvage"
+                android:id="@+id/tv_dates_detail"
                 style="@style/DetailValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_flag_detail"
                 app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toRightOf="@id/tvagelabel"
+                app:layout_constraintLeft_toRightOf="@id/iv_flag_detail"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvagelabel"
-                tools:text="25 years" />
-
-            <!-- Weight -->
-            <TextView
-                android:id="@+id/tvweightlabel"
-                style="@style/DetailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/weight_label"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvage" />
-
-            <TextView
-                android:id="@+id/tvweight"
-                style="@style/DetailValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toRightOf="@id/tvweightlabel"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvweightlabel"
-                tools:text="110 pounds" />
-
-            <!-- Height -->
-            <TextView
-                android:id="@+id/tvheightlabel"
-                style="@style/DetailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/height_label"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvweight" />
-
-            <TextView
-                android:id="@+id/tvheight"
-                style="@style/DetailValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toRightOf="@id/tvheightlabel"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvheightlabel"
-                tools:text="90 cm" />
-
-            <!-- Hair color -->
-            <TextView
-                android:id="@+id/tvhaircolorlabel"
-                style="@style/DetailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/haircolor_label"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvheight" />
-
-            <TextView
-                android:id="@+id/tvhaircolor"
-                style="@style/DetailValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toRightOf="@id/tvhaircolorlabel"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvhaircolorlabel"
-                tools:text="Pink" />
-
-            <!-- Professions -->
-            <TextView
-                android:id="@+id/tvprofessionslabel"
-                style="@style/DetailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/professions_label"
-                android:visibility="gone"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvhaircolor"
-                tools:visibility="visible" />
-
-            <TextView
-                android:id="@+id/tvprofessions"
-                style="@style/DetailValue"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvprofessionslabel"
-                tools:text="Tink, tax inspector, carpenter, mason, miner"
-                tools:visibility="visible" />
-
-            <!-- Annotations -->
-            <TextView
-                android:id="@+id/tvannotationslabel"
-                style="@style/DetailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/annotations_label"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvprofessions"
-                app:layout_constraintVertical_bias="0" />
-
-            <TextView
-                android:id="@+id/tvannotations"
-                style="@style/DetailValue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/annotations_placeholder"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvannotationslabel" />
-
-            <!-- Friends -->
-            <TextView
-                android:id="@+id/tvfriendslabel"
-                style="@style/DetailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/friends_label"
-                android:visibility="gone"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvannotations"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toTopOf="@id/iv_flag_detail" />
 
             <LinearLayout
-                android:id="@+id/friendslist"
+                android:id="@+id/sessions_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvfriendslabel"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toBottomOf="@id/iv_flag_detail" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabnotes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@android:drawable/ic_menu_edit"/>
 
 </android.support.design.widget.CoordinatorLayout>

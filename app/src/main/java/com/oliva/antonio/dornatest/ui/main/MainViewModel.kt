@@ -9,4 +9,5 @@ import android.arch.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
+    val isOnline = MutableLiveData<Boolean>()
 }

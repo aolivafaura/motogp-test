@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#E64A19</color>
-    <color name="colorAccent">#607D8B</color>
-    <color name="colorCollapsedToolbar">#B3E64A19</color>
-    <color name="colorExtendedText">#FFCCBC</color>
+    <color name="colorPrimary">#221414</color>
+    <color name="colorPrimaryDark">#220D0D</color>
+    <color name="colorPrimarySoft">#AC9B9B</color>
+    <color name="colorAccent">#BD0000</color>
 </resources>

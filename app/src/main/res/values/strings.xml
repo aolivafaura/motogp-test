@@ -1,23 +1,7 @@
 <resources>
     <string name="app_name">Dorna Test</string>
 
-    <string name="age_label">Age</string>
-    <string name="weight_label">Weight</string>
-    <string name="height_label">Height</string>
-    <string name="haircolor_label">Hair color</string>
-    <string name="professions_label">Professions</string>
-    <string name="friends_label">Friends</string>
-    <string name="annotations_label">Annotations</string>
-
-    <string name="annotations_placeholder">There is no notes about this gnome. Add your notes!</string>
-
-    <string name="show_friends">Show friends</string>
-
-    <string name="years_placeholder">%1$d years</string>
-    <string name="weight_placeholder">%1$.2f kg</string>
-    <string name="height_placeholder">%1$.2f cm</string>
-
-    <string name="dialog_notes_placeholder">Add you annotations!</string>
-
-    <string name="search_placeholder">Insert gnome name</string>
+    <string name="events">Events</string>
+    <string name="empty_list_message">There is no elements to show. Please try again later</string>
+    <string name="no_connection">Looks like you don\'t have connection. Data could be outdated.</string>
 </resources>

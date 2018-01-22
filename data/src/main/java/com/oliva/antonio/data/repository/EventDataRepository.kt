@@ -1,6 +1,5 @@
 package com.oliva.antonio.data.repository
 
-import android.util.Log
 import com.oliva.antonio.common.network.Connectivity
 import com.oliva.antonio.data.cache.CacheDao
 import com.oliva.antonio.data.entity.event.EventEntity
@@ -28,12 +27,13 @@ class EventDataRepository(val eventCacheDao: CacheDao<EventEntity>,
     override fun getEvents(): Flowable<List<Event>> {
         return if (connectivity.isConnected()) {
             eventCacheDao.getAll()
-                    .flatMap {
-                        if (it.isNotEmpty() && it.none { isOutdated(it) }) {
-                            Flowable.just<List<EventEntity>>(it)
+                    .flatMap { eventList ->
+                        if (eventList.isNotEmpty() && eventList.none { isOutdated(it) }) {
+                            Flowable.just<List<EventEntity>>(eventList)
                         } else {
                             dornaService.getEvents().map { mapApiResultToEventEntityList(it) }
                                     .doOnNext { eventCacheDao.insert(it) }
+                                    .onErrorReturn { eventList }
                         }
                     }
                     .map { it.map { mapEventEntityToEvent(it) } }
@@ -45,12 +45,13 @@ class EventDataRepository(val eventCacheDao: CacheDao<EventEntity>,
     override fun getEvent(id: Int): Flowable<Event> {
         return if (connectivity.isConnected()) {
             eventCacheDao.get(id)
-                    .flatMap {
-                        if (!isOutdated(it)) {
-                            Flowable.just<EventEntity>(it)
+                    .flatMap { event ->
+                        if (!isOutdated(event)) {
+                            Flowable.just<EventEntity>(event)
                         } else {
                             dornaService.getEvent(id).map { mapDetailApiResultToEventEntity(it) }
                                     .doOnNext { eventCacheDao.insert(singletonList(it)) }
+                                    .onErrorReturn { event }
                         }
                     }
                     .map { mapEventEntityToEvent(it) }

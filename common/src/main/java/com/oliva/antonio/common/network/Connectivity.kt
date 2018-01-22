@@ -1,5 +1,6 @@
 package com.oliva.antonio.common.network
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -16,10 +17,9 @@ class Connectivity(val context: Context) {
 
     /**
      * Get the network info
-     * @param context
-     * *
      * @return
      */
+    @SuppressLint("MissingPermission")
     fun getNetworkInfo(): NetworkInfo? {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo
@@ -27,20 +27,18 @@ class Connectivity(val context: Context) {
 
     /**
      * Check if there is any connectivity
-     * @param context
-     * *
      * @return
      */
-    fun isConnected(): Boolean {
-        return getNetworkInfo()?.isConnected ?: false
-    }
+    fun isConnected() = getNetworkInfo()?.isConnected ?: false
+
+    /**
+     * Check if there is no connectivity
+     * @return
+     */
+    fun isNotConnected() = !isConnected()
 
     /**
      * Check if there is any connectivity to a Wifi network
-     * @param context
-     * *
-     * @param type
-     * *
      * @return
      */
     fun isConnectedWifi(): Boolean {
@@ -50,10 +48,6 @@ class Connectivity(val context: Context) {
 
     /**
      * Check if there is any connectivity to a mobile network
-     * @param context
-     * *
-     * @param type
-     * *
      * @return
      */
     fun isConnectedMobile(): Boolean {
@@ -63,8 +57,6 @@ class Connectivity(val context: Context) {
 
     /**
      * Check if there is fast connectivity
-     * @param context
-     * *
      * @return
      */
     fun isConnectedFast(): Boolean {
