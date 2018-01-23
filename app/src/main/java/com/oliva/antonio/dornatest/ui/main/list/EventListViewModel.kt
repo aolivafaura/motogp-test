@@ -9,6 +9,7 @@ import com.oliva.antonio.domain.entity.Event
 import com.oliva.antonio.domain.usecase.event.GetAllEvents
 import com.oliva.antonio.dornatest.entity.EventUI
 import com.oliva.antonio.dornatest.entity.mapEventToEventUI
+import com.oliva.antonio.dornatest.ui.BaseViewModel
 import io.reactivex.subscribers.ResourceSubscriber
 
 /**
@@ -16,12 +17,11 @@ import io.reactivex.subscribers.ResourceSubscriber
  */
 
 class EventListViewModel(val getAllEvents: GetAllEvents,
-                         val connectivity: Connectivity) : ViewModel() {
+                         val connectivity: Connectivity) : BaseViewModel(connectivity) {
 
     // DATA ----------------------------------------------------------------------------------------
     val eventsData = MutableLiveData<List<EventUI>>()
     val state = MutableLiveData<ViewState>()
-    val isOnline = MutableLiveData<Boolean>()
 
     fun setViewState(state: ViewState) {
         this.state.value = state
@@ -47,10 +47,6 @@ class EventListViewModel(val getAllEvents: GetAllEvents,
                 // TODO Antonio
             }
         }, null)
-    }
-
-    private fun checkConnectivity() {
-        isOnline.value = connectivity.isConnected()
     }
 
     // VIEW MODEL OVERRIDES ------------------------------------------------------------------------

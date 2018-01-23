@@ -11,10 +11,10 @@ import java.util.*
 
 fun mapEventToEventUI(event: Event): EventUI {
     val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.getDefault())
-    var date = format.parse(event.dateBegin)
-    val timestamp = date.time
-    date = format.parse(event.dateFinish)
-    val timestamp2 = date.time
+    var date1 = format.parse(event.dateBegin)
+    val timestamp = date1.time
+    val date2 = format.parse(event.dateFinish)
+    val timestamp2 = date2.time
 
     return EventUI(event.id,
             event.name,
@@ -29,8 +29,8 @@ fun mapSessionToSessionUI(session: Session): SessionUI {
     val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.getDefault())
     var date = format.parse(session.startTime)
     val timestamp = date.time
-    date = format.parse(session.endTime)
-    val timestamp2 = date.time
+    val date2 = format.parse(session.endTime)
+    val timestamp2 = date2.time
 
     return SessionUI(session.name,
             session.champName,

@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
 import com.oliva.antonio.brastlewarkguide.ui.common.ViewState
 import com.oliva.antonio.brastlewarkguide.ui.main.list.adapter.EventsAdapter
@@ -115,7 +114,7 @@ class EventListFragment : BaseFragment() {
     // Callbacks -----------------------------------------------------------------------------------
     private fun onRefreshAction() = { listViewModel.setViewState(ViewState.Refreshing) }
 
-    private fun onListItemClick(id: Int) = Log.d("LISTCLICK", id.toString())
+    private fun onListItemClick(id: Int) = mainViewModel.onSelectedEvent(id)
 
     // COMPANION OBJECT ----------------------------------------------------------------------------
     companion object {

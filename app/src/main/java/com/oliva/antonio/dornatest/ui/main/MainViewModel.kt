@@ -10,4 +10,9 @@ import android.arch.lifecycle.ViewModel
 class MainViewModel : ViewModel() {
 
     val isOnline = MutableLiveData<Boolean>()
+    val selectedEvent = MutableLiveData<Int>()
+
+    fun onSelectedEvent(id: Int) {
+        selectedEvent.value = id
+    }
 }

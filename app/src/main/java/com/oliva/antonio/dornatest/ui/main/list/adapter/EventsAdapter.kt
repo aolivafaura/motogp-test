@@ -38,6 +38,7 @@ class EventsAdapter(val items: MutableList<EventUI>) : RecyclerView.Adapter<Even
         holder.name.text = event.name
         holder.flag.loadUrlRounded(event.circuitFlag)
         holder.dates.text = formatEventDates(event.dateBegin, event.dateFinish)
+        holder.itemView.setOnClickListener { onClickItem?.invoke(event.id) }
     }
 
     override fun getItemId(position: Int) = items[position].id.toLong()
