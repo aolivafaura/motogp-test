@@ -7,7 +7,7 @@ import android.support.constraint.ConstraintSet
 import android.support.transition.TransitionManager
 import android.view.View
 import android.widget.TextView
-import com.oliva.antonio.brastlewarkguide.ui.common.ViewState
+import com.oliva.antonio.dornatest.ui.common.ViewState
 import com.oliva.antonio.common.network.Connectivity
 import com.oliva.antonio.domain.usecase.event.GetEvent
 import com.oliva.antonio.dornatest.R
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.fragment_event_detail.*
 import javax.inject.Inject
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 class EventDetailFragment : BaseFragment() {

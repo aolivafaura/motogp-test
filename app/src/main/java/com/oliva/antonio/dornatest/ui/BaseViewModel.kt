@@ -5,10 +5,10 @@ import android.arch.lifecycle.ViewModel
 import com.oliva.antonio.common.network.Connectivity
 
 /**
- * Created by antonio on 1/23/18.
+ * Created by antonio
  */
 
-open class BaseViewModel(private val connectivity: Connectivity): ViewModel() {
+open class BaseViewModel(private val connectivity: Connectivity) : ViewModel() {
 
     val isOnline = MutableLiveData<Boolean>()
 

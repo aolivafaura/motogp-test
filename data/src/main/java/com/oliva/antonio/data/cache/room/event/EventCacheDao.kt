@@ -5,7 +5,7 @@ import com.oliva.antonio.data.cache.room.event.session.SessionCacheEntity
 import io.reactivex.Flowable
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 @Dao
 interface EventCacheDao {

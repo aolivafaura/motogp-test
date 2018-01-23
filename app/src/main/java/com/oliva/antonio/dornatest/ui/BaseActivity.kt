@@ -14,12 +14,13 @@ import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 
 abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector, FragmentManager.OnBackStackChangedListener {
 
-    @Inject lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    @Inject
+    lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)

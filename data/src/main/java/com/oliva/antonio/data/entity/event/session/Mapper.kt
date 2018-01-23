@@ -3,7 +3,7 @@ package com.oliva.antonio.data.entity.event.session
 import com.oliva.antonio.domain.entity.Session
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 internal fun mapSessionEntityToSession(sessionEntity: SessionEntity) = Session(

@@ -9,12 +9,13 @@ import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 
 class DornaApp : Application(), HasActivityInjector {
 
-    @Inject lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+    @Inject
+    lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()

@@ -1,7 +1,7 @@
-package com.oliva.antonio.brastlewarkguide.ui.common
+package com.oliva.antonio.dornatest.ui.common
 
 /**
- * Created by antoniojoseolivafaura on 04/12/2017.
+ * Created by antonio
  */
 
 enum class ViewState {

@@ -1,7 +1,7 @@
 package com.oliva.antonio.data.entity.event.session
 
 /**
- * Created by antonio on 1/20/18.
+ * Created by antonio
  */
 
 data class SessionEntity(val id: Int,

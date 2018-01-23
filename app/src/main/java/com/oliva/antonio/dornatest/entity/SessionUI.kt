@@ -1,7 +1,7 @@
 package com.oliva.antonio.dornatest.entity
 
 /**
- * Created by antonio on 1/22/18.
+ * Created by antonio
  */
 
 data class SessionUI(val name: String,

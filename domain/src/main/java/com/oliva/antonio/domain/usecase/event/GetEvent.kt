@@ -7,7 +7,7 @@ import io.reactivex.Flowable
 import javax.inject.Inject
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 class GetEvent @Inject constructor(val eventRepository: EventRepository) : UseCase<Event, Int>() {

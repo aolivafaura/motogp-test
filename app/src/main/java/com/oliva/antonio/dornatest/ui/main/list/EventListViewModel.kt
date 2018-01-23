@@ -3,7 +3,7 @@ package com.oliva.antonio.dornatest.ui.main.list
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.oliva.antonio.brastlewarkguide.ui.common.ViewState
+import com.oliva.antonio.dornatest.ui.common.ViewState
 import com.oliva.antonio.common.network.Connectivity
 import com.oliva.antonio.domain.entity.Event
 import com.oliva.antonio.domain.usecase.event.GetAllEvents
@@ -13,7 +13,7 @@ import com.oliva.antonio.dornatest.ui.BaseViewModel
 import io.reactivex.subscribers.ResourceSubscriber
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 class EventListViewModel(val getAllEvents: GetAllEvents,

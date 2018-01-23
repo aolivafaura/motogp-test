@@ -7,7 +7,7 @@ import com.bumptech.glide.request.RequestOptions.centerCropTransform
 import com.bumptech.glide.request.RequestOptions.circleCropTransform
 
 /**
- * Created by antoniojoseolivafaura on 04/12/2017.
+ * Created by antonio
  */
 
 fun ImageView.loadUrl(url: String?) {

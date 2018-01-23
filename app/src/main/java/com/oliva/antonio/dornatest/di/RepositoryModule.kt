@@ -15,7 +15,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 
 @Module
@@ -27,20 +27,20 @@ class RepositoryModule {
      */
     @Provides
     @Singleton
-    fun provideCacheGnomeDao(context: Context): CacheDao<EventEntity> {
+    fun provideEventCacheDao(context: Context): CacheDao<EventEntity> {
         val appDatabase = Room.databaseBuilder(context, AppDatabase::class.java, "dorna.db")
                 .fallbackToDestructiveMigration().build()
         return EventCacheDaoWrapper(appDatabase.eventCacheDao())
     }
 
     /**
-     * Provides gnomes repository
+     * Provides events repository
      *
      * @param cacheDao
      */
     @Provides
     @Singleton
-    fun provideGnomeRepository(cacheDao: CacheDao<EventEntity>,
+    fun provideEventRepository(cacheDao: CacheDao<EventEntity>,
                                dornaService: DornaService,
                                connectivity: Connectivity): EventRepository =
             EventDataRepository(cacheDao, dornaService, connectivity)

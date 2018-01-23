@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import com.oliva.antonio.brastlewarkguide.ui.common.ViewState
+import com.oliva.antonio.dornatest.ui.common.ViewState
 import com.oliva.antonio.brastlewarkguide.ui.main.list.adapter.EventsAdapter
 import com.oliva.antonio.common.network.Connectivity
 import com.oliva.antonio.domain.usecase.event.GetAllEvents
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_event_list.*
 import javax.inject.Inject
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 class EventListFragment : BaseFragment() {

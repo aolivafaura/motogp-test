@@ -7,7 +7,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 
 @Singleton

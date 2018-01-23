@@ -3,7 +3,7 @@ package com.oliva.antonio.data.entity.event
 import com.oliva.antonio.data.entity.event.session.SessionEntity
 
 /**
- * Created by antonio on 11/30/17.
+ * Created by antonio
  */
 
 data class EventEntity(val id: Int,

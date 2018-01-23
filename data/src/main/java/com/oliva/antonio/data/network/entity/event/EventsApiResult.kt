@@ -3,7 +3,7 @@ package com.oliva.antonio.data.network.entity.event
 import com.google.gson.annotations.SerializedName
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 data class EventsApiResult(@SerializedName("events") val events: List<EventApiEntity>)
 

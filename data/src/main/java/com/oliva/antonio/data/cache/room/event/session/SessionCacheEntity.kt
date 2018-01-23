@@ -1,12 +1,11 @@
 package com.oliva.antonio.data.cache.room.event.session
 
 import android.arch.persistence.room.*
-import android.arch.persistence.room.ForeignKey.CASCADE
 import android.arch.persistence.room.ForeignKey.NO_ACTION
 import com.oliva.antonio.data.cache.room.event.EventCacheEntity
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 @Entity(tableName = "sessions",

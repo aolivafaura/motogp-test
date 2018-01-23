@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * Created by antonio on 1/22/18.
+ * Created by antonio
  */
 
 fun formatEventDates(start: Long, end: Long): String {
@@ -23,7 +23,7 @@ fun formatEventDates(start: Long, end: Long): String {
 fun formatSessionDates(start: Long, end: Long): String {
     Log.d("FORMAT", start.toString() + " " + end)
     val startDateFormat = SimpleDateFormat("EEEE dd MMMM hh:mm", Locale.getDefault())
-    val endDateFormat =  SimpleDateFormat("hh:mm", Locale.getDefault())
+    val endDateFormat = SimpleDateFormat("hh:mm", Locale.getDefault())
 
     val startDate = startDateFormat.format(start)
     val endDate = endDateFormat.format(end)

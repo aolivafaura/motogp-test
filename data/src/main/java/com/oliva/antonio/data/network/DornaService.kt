@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 /**
- * Created by antonio on 11/30/17.
+ * Created by antonio
  */
 interface DornaService {
 

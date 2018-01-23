@@ -14,11 +14,8 @@ import java.util.Collections.singletonList
 
 /**
  * EventEntity repository implementation.
- * This class is in charge to decide the source of the data. In this case, just network and room
- * library cache are present, and {@see com.oliva.antonio.brastlewarkguide.network.LocalCacheInterceptor}
- * do the hard work, so is easy in this case to choose between sources.
  *
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 class EventDataRepository(val eventCacheDao: CacheDao<EventEntity>,
                           val dornaService: DornaService,

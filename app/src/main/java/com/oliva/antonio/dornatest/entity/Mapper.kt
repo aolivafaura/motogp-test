@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * Created by antonio on 1/22/18.
+ * Created by antonio
  */
 
 fun mapEventToEventUI(event: Event): EventUI {

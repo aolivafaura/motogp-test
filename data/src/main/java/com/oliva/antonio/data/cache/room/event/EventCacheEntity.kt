@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 
 @Entity(tableName = "events")

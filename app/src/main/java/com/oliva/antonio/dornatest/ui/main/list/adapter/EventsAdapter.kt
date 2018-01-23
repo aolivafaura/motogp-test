@@ -13,7 +13,7 @@ import com.oliva.antonio.dornatest.extensions.loadUrlRounded
 import com.oliva.antonio.dornatest.utils.formatEventDates
 
 /**
- * Created by antoniojoseolivafaura on 04/12/2017.
+ * Created by antonio
  */
 
 class EventsAdapter(val items: MutableList<EventUI>) : RecyclerView.Adapter<EventsAdapter.EventHolder>() {
@@ -61,7 +61,7 @@ class EventsAdapter(val items: MutableList<EventUI>) : RecyclerView.Adapter<Even
 
     // HOLDER CLASSES ------------------------------------------------------------------------------
     /**
-     * Gnome row golder
+     * Row holder
      */
     class EventHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image = itemView.findViewById<ImageView>(R.id.iv_event_image)!!

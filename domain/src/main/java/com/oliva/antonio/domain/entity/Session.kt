@@ -1,7 +1,7 @@
 package com.oliva.antonio.domain.entity
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 data class Session(val name: String,

@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import dagger.android.support.AndroidSupportInjection
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 abstract class BaseFragment : Fragment() {
 

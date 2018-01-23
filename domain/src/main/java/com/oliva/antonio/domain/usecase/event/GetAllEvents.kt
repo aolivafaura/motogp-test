@@ -7,8 +7,7 @@ import io.reactivex.Flowable
 import javax.inject.Inject
 
 /**
- * Get gnome by id
- * Created by antoniojoseolivafaura on 07/12/2017.
+ * Created by antonio
  */
 class GetAllEvents @Inject constructor(val eventRepository: EventRepository) : UseCase<List<Event>, Void?>() {
     override fun buildUseCaseObservable(params: Void?): Flowable<List<Event>> {

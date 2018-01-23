@@ -5,7 +5,7 @@ import android.arch.persistence.room.Relation
 import com.oliva.antonio.data.cache.room.event.session.SessionCacheEntity
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 data class EventCacheWithSessions(@Embedded

@@ -3,7 +3,7 @@ package com.oliva.antonio.data.cache.room.event.session
 import com.oliva.antonio.data.entity.event.session.SessionEntity
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 fun mapSessionEntityToSessionCacheEntity(sessionEntity: SessionEntity, eventId: Int) =

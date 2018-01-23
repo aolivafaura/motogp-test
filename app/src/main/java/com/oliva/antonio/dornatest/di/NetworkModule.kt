@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 @Module
 class NetworkModule {
@@ -49,7 +49,7 @@ class NetworkModule {
     }
 
     /**
-     * Provides gnome api service
+     * Provides api service
      *
      * @param httpClient
      */

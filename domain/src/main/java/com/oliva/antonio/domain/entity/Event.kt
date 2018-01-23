@@ -1,7 +1,7 @@
 package com.oliva.antonio.domain.entity
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 data class Event(val id: Int,
                  val name: String,

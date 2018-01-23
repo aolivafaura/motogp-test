@@ -3,7 +3,7 @@ package com.oliva.antonio.data.network.entity.event.session
 import com.google.gson.annotations.SerializedName
 
 /**
- * Created by antonio on 1/20/18.
+ * Created by antonio
  */
 
 data class DetailApiResult(@SerializedName("id") val id: Int,

@@ -4,7 +4,7 @@ import com.oliva.antonio.data.entity.event.EventEntity
 import com.oliva.antonio.data.network.entity.event.session.DetailApiResult
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 internal fun mapApiResultToEventEntityList(eventsApiResult: EventsApiResult): List<EventEntity> =
         eventsApiResult.events.map {

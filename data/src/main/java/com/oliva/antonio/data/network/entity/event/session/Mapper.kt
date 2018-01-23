@@ -4,7 +4,7 @@ import com.oliva.antonio.data.entity.event.EventEntity
 import com.oliva.antonio.data.entity.event.session.SessionEntity
 
 /**
- * Created by antonio on 1/20/18.
+ * Created by antonio
  */
 
 internal fun mapDetailApiResultToEventEntity(detailApiResult: DetailApiResult): EventEntity =

@@ -4,18 +4,12 @@ import com.oliva.antonio.domain.entity.Event
 import io.reactivex.Flowable
 
 /**
- * Gnomes repository
- * Created by antonio on 12/3/17.
+ * Events repository
+ * Created by antonio
  */
 interface EventRepository {
 
-    /**
-     *
-     */
     fun getEvents(): Flowable<List<Event>>
 
-    /**
-     *
-     */
     fun getEvent(id: Int): Flowable<Event>
 }

@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Named
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 
 abstract class UseCase<T, in Params> {

@@ -1,7 +1,7 @@
 package com.oliva.antonio.data.repository
 
 /**
- * Created by antonio on 1/23/18.
+ * Created by antonio
  */
 
 const val CACHE_ALIVE = 30000 // 30 seconds

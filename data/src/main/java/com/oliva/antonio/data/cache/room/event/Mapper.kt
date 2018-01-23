@@ -4,7 +4,7 @@ import com.oliva.antonio.data.cache.room.event.session.mapSessionCacheEntityToSe
 import com.oliva.antonio.data.entity.event.EventEntity
 
 /**
- * Created by antonio on 1/21/18.
+ * Created by antonio
  */
 
 fun mapEventEntityToEventCacheEntity(eventEntity: EventEntity) =

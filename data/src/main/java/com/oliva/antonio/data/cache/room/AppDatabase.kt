@@ -7,10 +7,10 @@ import com.oliva.antonio.data.cache.room.event.EventCacheEntity
 import com.oliva.antonio.data.cache.room.event.session.SessionCacheEntity
 
 /**
- * Created by antonio on 12/3/17.
+ * Created by antonio
  */
 @Database(entities = [(EventCacheEntity::class), (SessionCacheEntity::class)],
-        version = 3,
+        version = 1,
         exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
