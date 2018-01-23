@@ -1,5 +1,6 @@
 package com.oliva.antonio.data.cache.room
 
+import android.util.Log
 import com.oliva.antonio.data.cache.CacheDao
 import com.oliva.antonio.data.cache.room.event.EventCacheDao
 import com.oliva.antonio.data.cache.room.event.mapEventCacheEntityToEventEntity
@@ -22,7 +23,8 @@ class EventCacheDaoWrapper(val eventCacheDao: EventCacheDao) : CacheDao<EventEnt
                         .flatMap { event -> event.sessions.map { mapSessionEntityToSessionCacheEntity(it, event.id) } }
 
         if (sessionsToInsert.isNotEmpty()) {
-            eventCacheDao.insertSessions(sessionsToInsert)
+            val count = eventCacheDao.insertSessions(sessionsToInsert)
+            Log.d("sd", count.toString())
         }
 
         return eventCacheDao.insertEvents(entities.map { mapEventEntityToEventCacheEntity(it) })

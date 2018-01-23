@@ -46,12 +46,12 @@ class EventDataRepository(val eventCacheDao: CacheDao<EventEntity>,
         return if (connectivity.isConnected()) {
             eventCacheDao.get(id)
                     .flatMap { event ->
-                        if (!isOutdated(event)) {
-                            Flowable.just<EventEntity>(event)
-                        } else {
+                        if (isOutdated(event) || event.sessions.isEmpty()) {
                             dornaService.getEvent(id).map { mapDetailApiResultToEventEntity(it) }
                                     .doOnNext { eventCacheDao.insert(singletonList(it)) }
                                     .onErrorReturn { event }
+                        } else {
+                            Flowable.just<EventEntity>(event)
                         }
                     }
                     .map { mapEventEntityToEvent(it) }

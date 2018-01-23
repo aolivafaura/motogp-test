@@ -70,6 +70,8 @@ dependencies {
     androidTestImplementation("com.android.support.test.espresso:espresso-core:$espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.2'
 }
 
 android {

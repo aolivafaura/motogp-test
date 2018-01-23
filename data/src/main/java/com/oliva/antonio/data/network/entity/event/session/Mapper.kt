@@ -22,7 +22,8 @@ private fun mapSessionDataObjectToSessionDetailEntity(sessionsDataObject: Sessio
         sessionsDataObject.data!!.map { mapSessionApiDetailToSessionEntity(it) }
 
 private fun mapSessionApiDetailToSessionEntity(sessionApiDetail: SessionApiDetail): SessionEntity =
-        SessionEntity(if (sessionApiDetail.name.isNullOrEmpty()) "" else sessionApiDetail.name!!,
+        SessionEntity(sessionApiDetail.id,
+                if (sessionApiDetail.name.isNullOrEmpty()) "" else sessionApiDetail.name!!,
                 if (sessionApiDetail.champName.isNullOrEmpty()) "" else sessionApiDetail.champName!!,
                 if (sessionApiDetail.startTime.isNullOrEmpty()) "" else sessionApiDetail.startTime!!,
                 if (sessionApiDetail.endTime.isNullOrEmpty()) "" else sessionApiDetail.endTime!!)

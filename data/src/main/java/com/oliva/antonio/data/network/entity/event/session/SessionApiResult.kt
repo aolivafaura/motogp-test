@@ -16,7 +16,8 @@ data class DetailApiResult(@SerializedName("id") val id: Int,
 
 data class SessionsDataObject(@SerializedName("data") val data: List<SessionApiDetail>?)
 
-data class SessionApiDetail(@SerializedName("start_time") val startTime: String?,
+data class SessionApiDetail(@SerializedName("id") val id: Int,
+                            @SerializedName("start_time") val startTime: String?,
                             @SerializedName("end_time") val endTime: String?,
                             @SerializedName("champ_name") val champName: String?,
                             @SerializedName("name") val name: String?)

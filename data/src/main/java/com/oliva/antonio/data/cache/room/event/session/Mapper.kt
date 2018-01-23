@@ -7,7 +7,9 @@ import com.oliva.antonio.data.entity.event.session.SessionEntity
  */
 
 fun mapSessionEntityToSessionCacheEntity(sessionEntity: SessionEntity, eventId: Int) =
-        SessionCacheEntity(sessionEntity.name,
+        SessionCacheEntity(0,
+                sessionEntity.id,
+                sessionEntity.name,
                 sessionEntity.champName,
                 sessionEntity.startTime,
                 sessionEntity.endTime,
@@ -15,7 +17,8 @@ fun mapSessionEntityToSessionCacheEntity(sessionEntity: SessionEntity, eventId: 
                 cacheLastUpdate = System.currentTimeMillis())
 
 fun mapSessionCacheEntityToSessionEntity(sessionCacheEntity: SessionCacheEntity) =
-        SessionEntity(sessionCacheEntity.name,
+        SessionEntity(sessionCacheEntity.id,
+                sessionCacheEntity.name,
                 sessionCacheEntity.champName,
                 sessionCacheEntity.startTime,
                 sessionCacheEntity.endTime,

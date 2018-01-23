@@ -33,5 +33,5 @@ fun mapEventCacheWithSessionsToEventEntity(eventCacheWithSessions: EventCacheWit
                 eventCacheWithSessions.event.dateBegin,
                 eventCacheWithSessions.event.dateFinish,
                 eventCacheWithSessions.event.circuitFlag,
-                eventCacheWithSessions.sessions?.map { mapSessionCacheEntityToSessionEntity(it) },
+                eventCacheWithSessions.sessions.map { mapSessionCacheEntityToSessionEntity(it) },
                 eventCacheWithSessions.event.cacheLastUpdate)

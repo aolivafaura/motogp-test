@@ -37,10 +37,11 @@ class EventDetailViewModel(val getEvent: GetEvent, val connectivity: Connectivit
                 event?.let {
                     eventData.value = mapEventToEventUI(event)
                 }
+                dispose()
             }
 
             override fun onError(t: Throwable?) {
-
+                dispose()
             }
         }, id)
     }
