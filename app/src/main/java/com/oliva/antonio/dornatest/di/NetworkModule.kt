@@ -18,32 +18,15 @@ import javax.inject.Singleton
 class NetworkModule {
 
     /**
-     * Provides network interceptors for okhttp client. In this case, no interceptor is provided,
-     * but is useful to do it that way for debug configurations (i.e.: loggin interceptor, stetho interceptor, etc)
-     *
-     */
-    @Provides
-    @Singleton
-    fun provideNetworkInterceptors(): ArrayList<Interceptor> {
-        return ArrayList()
-    }
-
-    /**
      * Provides http client
-     *
-     * @param interceptors
      */
     @Provides
     @Singleton
-    fun providesHttpClient(interceptors: ArrayList<Interceptor>): OkHttpClient {
+    fun providesHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
                 .readTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(20, TimeUnit.SECONDS)
                 .connectTimeout(10, TimeUnit.SECONDS)
-
-        for (interceptor in interceptors) {
-            builder.addNetworkInterceptor(interceptor)
-        }
 
         return builder.build()
     }
