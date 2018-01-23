@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
 import android.support.transition.TransitionManager
+import android.view.View
 import android.widget.TextView
 import com.oliva.antonio.brastlewarkguide.ui.common.ViewState
 import com.oliva.antonio.common.network.Connectivity
@@ -14,6 +15,7 @@ import com.oliva.antonio.dornatest.entity.EventUI
 import com.oliva.antonio.dornatest.entity.SessionUI
 import com.oliva.antonio.dornatest.extensions.loadUrl
 import com.oliva.antonio.dornatest.extensions.loadUrlRounded
+import com.oliva.antonio.dornatest.ui.BaseActivity
 import com.oliva.antonio.dornatest.ui.BaseFragment
 import com.oliva.antonio.dornatest.ui.main.MainViewModel
 import com.oliva.antonio.dornatest.utils.formatEventDates
@@ -52,6 +54,11 @@ class EventDetailFragment : BaseFragment() {
         mainViewModel.selectedEvent.value?.let {
             eventDetailViewModel.loadEvent(mainViewModel.selectedEvent.value!!)
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as BaseActivity).setToolbar(toolbar)
     }
 
     // PRIVATE METHODS -----------------------------------------------------------------------------
@@ -93,10 +100,8 @@ class EventDetailFragment : BaseFragment() {
         eventDetailViewModel.viewState.observe(this, Observer<ViewState> {
             it?.let {
                 when (it) {
-                    ViewState.Refreshing -> {
-                    }
-                    ViewState.Idle -> {
-                    }
+                    ViewState.Refreshing -> rl_loading_container.visibility = View.VISIBLE
+                    ViewState.Idle -> rl_loading_container.visibility = View.GONE
                 }
             }
         })

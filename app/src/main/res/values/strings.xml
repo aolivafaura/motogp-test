@@ -2,6 +2,6 @@
     <string name="app_name">Dorna Test</string>
 
     <string name="events">Events</string>
-    <string name="empty_list_message">There is no elements to show. Please try again later</string>
+    <string name="empty_list_message">There is no elements to show. Click here to try again</string>
     <string name="no_connection">Looks like you don\'t have connection. Data could be outdated.</string>
 </resources>

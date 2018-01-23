@@ -10,4 +10,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ProgressBarCustom" parent="@style/Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/progressbar_drawable</item>
+        <item name="android:minHeight">80dp</item>
+        <item name="android:minWidth">200dp</item>
+    </style>
+
 </resources>

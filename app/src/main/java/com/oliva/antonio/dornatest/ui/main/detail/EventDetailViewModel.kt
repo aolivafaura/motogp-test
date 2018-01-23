@@ -28,9 +28,7 @@ class EventDetailViewModel(val getEvent: GetEvent, val connectivity: Connectivit
 
         viewState.value = ViewState.Refreshing
         getEvent.execute(object : ResourceSubscriber<Event>() {
-            override fun onComplete() {
-
-            }
+            override fun onComplete() {}
 
             override fun onNext(event: Event?) {
                 viewState.value = ViewState.Idle

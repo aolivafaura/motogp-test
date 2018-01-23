@@ -74,6 +74,8 @@ class EventListFragment : BaseFragment() {
 
         val layoutManager = LinearLayoutManager(this.context)
         rvlist.layoutManager = layoutManager
+
+        tv_empty_message.setOnClickListener { listViewModel.setViewState(ViewState.Refreshing) }
     }
 
     private fun initAdapter(items: MutableList<EventUI>) {
@@ -81,15 +83,22 @@ class EventListFragment : BaseFragment() {
         adapter?.onClickItem = { onListItemClick(it) }
 
         rvlist.adapter = adapter
+        rvlist.visibility = View.VISIBLE
     }
 
     // Observers -----------------------------------------------------------------------------------
     private fun observeEvents() {
         listViewModel.eventsData.observe(this, Observer<List<EventUI>> {
             it?.let {
-                adapter?.apply {
-                    updateList(it.toMutableList())
-                } ?: initAdapter(it.toMutableList())
+                if (it.isEmpty()) {
+                    rvlist.visibility = View.GONE
+                    tv_empty_message.visibility = View.VISIBLE
+                } else {
+                    adapter?.apply {
+                        updateList(it.toMutableList())
+                        rvlist.visibility = View.VISIBLE
+                    } ?: initAdapter(it.toMutableList())
+                }
             }
         })
     }
@@ -97,7 +106,10 @@ class EventListFragment : BaseFragment() {
     private fun observeViewState() {
         listViewModel.state.observe(this, Observer<ViewState> {
             when (it) {
-                ViewState.Refreshing -> swiperefresh.isRefreshing = true
+                ViewState.Refreshing -> {
+                    swiperefresh.isRefreshing = true
+                    tv_empty_message.visibility = View.GONE
+                }
                 ViewState.Idle -> swiperefresh.isRefreshing = false
             }
         })
