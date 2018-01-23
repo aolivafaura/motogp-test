@@ -61,5 +61,5 @@ class EventDataRepository(val eventCacheDao: CacheDao<EventEntity>,
     }
 
     private fun isOutdated(cachedEvents: EventEntity): Boolean =
-            System.currentTimeMillis() - cachedEvents.cacheLastUpdate > 15000
+            System.currentTimeMillis() - cachedEvents.cacheLastUpdate > CACHE_ALIVE
 }
